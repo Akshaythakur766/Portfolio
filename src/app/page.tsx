@@ -1,11 +1,12 @@
-import { AboutSection } from "@/sections/About";
-import { ContactSection } from "@/sections/Contact";
-import { Footer } from "@/sections/Footer";
-import { Header } from "@/sections/Header"
-import { HeroSection } from "@/sections/Hero";
-import { ProjectsSection } from "@/sections/Projects";
-import { TapeSection } from "@/sections/Tape";
-import { TestimonialsSection } from "@/sections/Testimonials";
+import { AboutSection } from "@/sections/About/About";
+import { ContactSection } from "@/sections/Contact/Contact";
+import { ProjectsSection } from "@/sections/Feature Projects/Projects";
+import { Footer } from "@/sections/Footer/Footer";
+import { Header } from "@/sections/Header/Header"
+import { HeroSection } from "@/sections/Hero/Hero";
+import { TapeSection } from "@/sections/Tape/Tape";
+import { TestimonialsSection } from "@/sections/Testimonials/Testimonials";
+
 
 export default function Home() {
   return (

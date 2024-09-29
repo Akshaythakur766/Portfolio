@@ -9,12 +9,12 @@ import JAvascriptIcon from "@/assets/icons/square-js.svg";
 import bookCover from "@/assets/images/book-cover.png";
 import mapImage from "@/assets/images/map.png";
 import smileEmoji from "@/assets/images/memoji-smile.png";
-import Card from "@/components/Card";
-import CardHeader from "@/components/CardHeader";
-import SectionHeader from "@/components/SectionHeader";
-import ToolBoxItems from "@/components/ToolBoxItems";
+import CardHeader from "@/components/CardHeader/CardHeader";
+import SectionHeader from "@/components/SectionHeader/SectionHeader";
 import Image from "next/image";
 import {motion} from "framer-motion"
+import Card from "@/components/Card/Card";
+import ToolBoxItems from "@/components/ToolBoxItems/ToolBoxItems";
 const toolBoxItems = [
   {
     title: "Javascript",
