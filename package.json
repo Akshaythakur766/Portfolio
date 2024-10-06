@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-site-2",
+  "name": "akshay-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "@svgr/webpack": "^8.1.0",
     "framer-motion": "^11.3.21",
-    "next": "14.2.5",
+    "next": "^14.2.13",
     "react": "^18",
     "react-dom": "^18",
-    "tailwind-merge": "^2.4.0"
+    "react-hook-form": "^7.53.0",
+    "tailwind-merge": "^2.4.0",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "^20",

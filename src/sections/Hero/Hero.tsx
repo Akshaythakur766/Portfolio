@@ -83,17 +83,17 @@ export const HeroSection = () => {
             </h1>
             <p className="mt-4 text-center text-white/60 md:text-lg ">
               I specialize in transforming designs into functional ,
-              high-performing web applications. Let's discuss your next project
+              high-performing web applications. Let&apos;s discuss your next project
             </p>
           </div>
           <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4 ">
-            <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl ">
+            <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl z-0 ">
               <span className="font-semibold">Explore My work </span>
               <ArrowDown className="size-4" />
             </button>
-            <button className="inline-flex items-center gap-2 h-12 px-6 rounded-lg border-white bg-white text-gray-900 ">
+            <button className="inline-flex items-center gap-2 h-12 px-6 rounded-lg border-white bg-white text-gray-900 z-0 ">
               <span>👋</span>
-              <span className="font-semibold">Let's Connect</span>
+              <span className="font-semibold">Let&apos;s Connect</span>
             </button>
           </div>
         </div>
