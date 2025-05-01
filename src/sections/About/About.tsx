@@ -21,7 +21,7 @@ const toolBoxItems = [
     iconType: JAvascriptIcon,
   },
   {
-    title: "HtML%",
+    title: "HtML",
     iconType: HtmlIcon,
   },
   {
@@ -152,7 +152,7 @@ export const AboutSection = () => {
               </div>
             </Card>
 
-            <Card className="h-[320px] p-0 md:col-span-2 lg:col-span-1 ">
+            <Card className="h-[320px] p-0 md:col-span-2 lg:col-span-1 cursor-pointer " >
               <Image
                 src={mapImage}
                 alt="map"

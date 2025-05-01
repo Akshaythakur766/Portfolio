@@ -1,8 +1,8 @@
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
-import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
-import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
+import CampusLink from "@/assets/images/campus-link.png";
+import Todo from "@/assets/images/Todo.png";
 import Card from "@/components/Card/Card";
 import SectionHeader from "@/components/SectionHeader/SectionHeader";
 import Image from "next/image";
@@ -10,40 +10,46 @@ import Link from "next/link";
 
 const portfolioProjects = [
   {
-    company: "Acme Corp",
-    year: "2022",
-    title: "Dark Saas Landing Page",
-    results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
-    ],
-    link: "https://youtu.be/4k7IdSLxh6w",
-    image: darkSaasLandingPage,
-  },
-  {
-    company: "Innovative Co",
-    year: "2021",
-    title: "Light Saas Landing Page",
-    results: [
-      { title: "Boosted sales by 20%" },
-      { title: "Expanded customer reach by 35%" },
-      { title: "Increased brand awareness by 15%" },
-    ],
-    link: "https://youtu.be/7hi5zwO75yc",
-    image: lightSaasLandingPage,
-  },
-  {
-    company: "Quantum Dynamics",
+    company: "Project",
     year: "2023",
-    title: "AI Startup Landing Page",
+    title: "Campus Link",
     results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
+      { title: "Implemented OTP-based time-limited attendance tracking" },
+      { title: "Streamlined library reservations and digital catalog access" },
+      {
+        title:
+          "Improved security and user monitoring through real-time features",
+      },
     ],
-    link: "https://youtu.be/Z7I5uSRHMHg",
+    link: "https://github.com/Akshaythakur766/CampusLink",
+    image: CampusLink,
+    viewText: "View Site",
+  },
+  {
+    company: "Project",
+    year: "2024",
+    title: "TODO",
+    results: [
+      { title: "Built secure user login with Firebase Authentication" },
+      { title: "Enabled full CRUD for tasks with persistent local storage" },
+      { title: "Deployed scalable web app via Firebase Hosting" },
+    ],
+    link: "https://todo-list-bade9.web.app/",
+    image: Todo,
+    viewText: "View Site",
+  },
+  {
+    company: "Npm Package",
+    year: "2025",
+    title: "Create-App-Setup",
+    results: [
+      { title: "Automated setup for React, Next.js, and Node.js projects" },
+      { title: "Generated structured boilerplate with ready-to-use configs" },
+      { title: "Accelerated development start time by over 50%" },
+    ],
+    link: "https://www.npmjs.com/package/create-app-setup",
     image: aiStartupLandingPage,
+    viewText: "View Package",
   },
 ];
 
@@ -58,12 +64,12 @@ export const ProjectsSection = () => {
         />
 
         <div className="flex flex-col mt-10 md:mt-20 gap-20 ">
-          {portfolioProjects.map((project,projectIndex) => (
+          {portfolioProjects.map((project, projectIndex) => (
             <Card
               key={project.title}
               className="px-8 pt-8 pb-0  md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky "
               style={{
-                top:`calc(64px + ${projectIndex*35}px)`
+                top: `calc(64px + ${projectIndex * 35}px)`,
               }}
             >
               <div className="lg:grid lg:grid-cols-2 lg:gap-16 ">
@@ -88,25 +94,24 @@ export const ProjectsSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <Link href={project.link}>
+                  <Link href={project.link} target="_blank">
                     <button className="bg-white text-gray-950 h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 md:w-auto md:px-6 ">
-                      <span>Visit Live Site</span>
+                      <span>{project.viewText}</span>
                       <ArrowUpRightIcon className="size-4" />
                     </button>
                   </Link>
                 </div>
-                <div className="relative">
+                <div className="relative  ">
                   <Image
                     src={project.image}
                     alt={project.title}
-                    className="mt-8 -mb-4 md:mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none "
+                    className="mt-8 -mb-4 rounded-[18px] border-2 border-gray-700   md:mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none  "
                   />
                 </div>
               </div>
             </Card>
           ))}
         </div>
-
       </div>
     </section>
   );
