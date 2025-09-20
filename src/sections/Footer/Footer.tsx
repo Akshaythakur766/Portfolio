@@ -28,7 +28,7 @@ export const Footer = () => {
           <div className="text-white/40" >&copy; 2025 , All rights reserved</div>
           <nav className="flex flex-col md:flex-row items-center gap-8">
             {FooterLinks.map((link) => (
-              <Link href={link.href} key={link.title} className="inline-flex items-center gap-1.5 cursor-pointer  ">
+              <Link href={link.href} key={link.title} className=" cursor-pointer inline-flex items-center gap-1.5 cursor-pointer  ">
                 <span className="font-semibold" >{link.title}</span>
                 <ArrowUpRightIcon className="size-4"/>
               </Link>
