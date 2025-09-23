@@ -47,6 +47,7 @@ export const Navigation = () => {
             size="sm"
             onClick={() => {setIsOpen((prev)=>!prev)
               console.log("Clicked" )
+              
             }}
           >
             {isOpen ? "Close" : "Open"}

@@ -13,6 +13,7 @@ export default function Card({
         className
       )}
       {...other}
+      
     >
       <div
         className="absolute inset-0 -z-10 opacity-5"
