@@ -3,8 +3,10 @@
 import React from 'react'
 import {AppHome} from "@/sections/Home"
 const ProtfolioHome = () => {
+  console.log("Portfolio Home")
   return (
     <AppHome/>
+
   )
 }
 
