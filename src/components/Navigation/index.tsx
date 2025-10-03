@@ -3,7 +3,9 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
-import Button from "../Button/Button";
+import Button from "@/components/Button/Button";
+import { Menu, X } from "lucide-react";
+
 export const Navigation = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -45,14 +47,33 @@ export const Navigation = () => {
             variant="ghost"
             className="md:hidden"
             size="sm"
-            onClick={() => {setIsOpen((prev)=>!prev)
-              console.log("Clicked" )
-              
+            onClick={() => {
+              setIsOpen((prev) => !prev);
             }}
           >
-            {isOpen ? "Close" : "Open"}
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
+        {isOpen && (
+          <div className="md:hidden mt-4 pb-4 animate-fade-in">
+            <div className="flex flex-col space-y-2">
+              {navLinks?.map((link) => (
+                <Link
+                  key={link.path}
+                  href={link.path}
+                  className={`py-2 px-3 rounded-lg transition-colors duration-300 ${
+                    isActive(link.path)
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

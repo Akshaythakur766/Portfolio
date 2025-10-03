@@ -5,7 +5,6 @@
 @layer base {
   :root {
     --border: 222 47% 15%;
-
     /* Dark portfolio theme */
     --background: 222 47% 7%;
     --foreground: 210 40% 98%;
@@ -28,10 +27,74 @@
     --accent: 262 83% 58%;
     --accent-foreground: 210 40% 98%;
 
-      /* Custom portfolio colors */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(262 83% 58%));
-    --gradient-secondary: linear-gradient(135deg, hsl(222 47% 12%), hsl(222 47% 15%));
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 7%) 0%, hsl(222 47% 9%) 50%, hsl(217 91% 60% / 0.1) 100%)
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 47% 15%;
+    --input: 222 47% 15%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom portfolio colors */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(217 91% 60%),
+      hsl(262 83% 58%)
+    );
+    --gradient-secondary: linear-gradient(
+      135deg,
+      hsl(222 47% 12%),
+      hsl(222 47% 15%)
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(222 47% 7%) 0%,
+      hsl(222 47% 9%) 50%,
+      hsl(217 91% 60% / 0.1) 100%
+    );
+
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(217 91% 60% / 0.3);
+    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.2);
+    --shadow-card: 0 4px 20px hsl(222 47% 7% / 0.5);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom portfolio colors */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(217 91% 60%),
+      hsl(262 83% 58%)
+    );
+    --gradient-secondary: linear-gradient(
+      135deg,
+      hsl(222 47% 12%),
+      hsl(222 47% 15%)
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(222 47% 7%) 0%,
+      hsl(222 47% 9%) 50%,
+      hsl(217 91% 60% / 0.1) 100%
+    );
   }
   .nav-item {
     @apply px-4 py-1.5 rounded-full text-white/70 text-sm font-semibold hover:bg-white/10  hover:text-white transition duration-300;
