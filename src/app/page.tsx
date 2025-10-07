@@ -11,7 +11,6 @@ import { TestimonialsSection } from "@/sections/Testimonials/Testimonials";
 export default function Home() {
   return (
     <div className="-z-100" >
-      <Header/>
       <HeroSection/>
       <ProjectsSection/>
       <TapeSection/>
