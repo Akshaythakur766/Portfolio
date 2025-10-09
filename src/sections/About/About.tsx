@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import ChromeIcon from "@/assets/icons/check-circle.svg";
 import CssIcon from "@/assets/icons/css3.svg";
@@ -12,7 +12,7 @@ import smileEmoji from "@/assets/images/memoji-smile.png";
 import CardHeader from "@/components/CardHeader/CardHeader";
 import SectionHeader from "@/components/SectionHeader/SectionHeader";
 import Image from "next/image";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 import Card from "@/components/Card/Card";
 import ToolBoxItems from "@/components/ToolBoxItems/ToolBoxItems";
 const toolBoxItems = [
@@ -88,7 +88,7 @@ const hobbies = [
 ];
 
 export const AboutSection = () => {
-  const contraintRef=React.useRef(null)
+  const contraintRef = React.useRef(null);
   return (
     <div className="py-20 lg:py-28  " id="about">
       <div className="container">
@@ -134,7 +134,7 @@ export const AboutSection = () => {
                 description=" Explore my interests and hobbies beyond the digital realm"
                 className="px-6 py-6"
               />
-              <div className="relative flex-1 " ref={contraintRef} >
+              <div className="relative flex-1 " ref={contraintRef}>
                 {hobbies.map((hobby) => (
                   <motion.div
                     key={hobby.title}
@@ -152,7 +152,7 @@ export const AboutSection = () => {
               </div>
             </Card>
 
-            <Card className="h-[320px] p-0 md:col-span-2 lg:col-span-1 cursor-pointer " >
+            <Card className="h-[320px] p-0 md:col-span-2 lg:col-span-1 cursor-pointer ">
               <Image
                 src={mapImage}
                 alt="map"

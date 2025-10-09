@@ -12,7 +12,7 @@ import {
   Mail,
   MapPin,
   Phone,
-  Send
+  Send,
 } from "lucide-react";
 import { useState } from "react";
 // import { useToast } from "@/hooks/use-toast";
@@ -45,9 +45,21 @@ export const Contact = () => {
   };
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com/Akshaythakur766", label: "GitHub" },
-    { icon: Linkedin, href: "https://in.linkedin.com/in/akshay-thakur1766", label: "LinkedIn" },
-    { icon: Instagram, href: "https://www.instagram.com/akshay_thakur_03", label: "Instagram" },
+    {
+      icon: Github,
+      href: "https://github.com/Akshaythakur766",
+      label: "GitHub",
+    },
+    {
+      icon: Linkedin,
+      href: "https://in.linkedin.com/in/akshay-thakur1766",
+      label: "LinkedIn",
+    },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/akshay_thakur_03",
+      label: "Instagram",
+    },
     // { icon: Twitter, href: "#", label: "Twitter" },
   ];
 
