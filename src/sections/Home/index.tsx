@@ -31,12 +31,12 @@ export const AppHome = () => {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
             Hi, I'm a <span className="gradient-text">React Developer</span>
           </h1>
-          <p className="text-lg md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:200ms]">
+          <p className="text-lg md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-slide-up ">
             Building modern, responsive web applications with React.js and
             Next.js. Passionate about clean code and exceptional user
             experiences.
           </p>
-          <div className="flex flex-col  md:flex-row  gap-4 justify-center items-center animate-slide-up [animation-delay:400ms]">
+          <div className="flex flex-col  md:flex-row  gap-4 justify-center items-center animate-slide-up">
             <Link href="/projects">
               <Button
                 size="lg"

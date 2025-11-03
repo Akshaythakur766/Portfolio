@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { HeroSection } from "../Hero/Hero";
 export const AboutMe = () => {
   const skills = [
     { name: "React.js", level: 95 },
@@ -45,6 +46,7 @@ export const AboutMe = () => {
             modern, efficient, and user-friendly web applications.
           </p>
         </div>
+       <HeroSection/>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - About Text */}
@@ -95,7 +97,7 @@ export const AboutMe = () => {
           </div>
 
           {/* Right Column - Skills */}
-          <div className="animate-slide-up [animation-delay:200ms]">
+          <div className="animate-slide-up ">
             <Card className="p-8 glass-effect">
               <h2 className="text-2xl font-bold mb-6">Core Skills</h2>
               <div className="space-y-6">
