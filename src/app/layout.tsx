@@ -31,10 +31,13 @@ export default function RootLayout({
           `bg-gray-900 text-white antialiased font-sans `
         )}
       >
+        <div  className="-z-100">
+
         <Navigation />
 
         {children}
         <Footer/>
+        </div>
       </body>
     </html>
   );

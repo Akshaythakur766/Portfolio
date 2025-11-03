@@ -18,6 +18,10 @@
     --primary: 217 91% 60%;
     --primary-foreground: 222 47% 7%;
 
+    /* Primary (Emerald 300) */
+    /* --primary: 156 64% 67%;
+  --primary-foreground: 156 100% 10%; */
+
     --secondary: 222 47% 12%;
     --secondary-foreground: 210 40% 98%;
 
@@ -26,6 +30,10 @@
 
     --accent: 262 83% 58%;
     --accent-foreground: 210 40% 98%;
+
+    /*     Accent(SKY-400)
+    --accent: 199 94% 60%;
+    --accent-foreground:  199 100% 10%; */
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
