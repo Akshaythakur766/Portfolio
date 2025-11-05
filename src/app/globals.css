@@ -128,4 +128,31 @@
   }
 }
 
-/* Other Common Styles */
+
+/* ---Scrollbar Styling Start---*/
+/* Custom dark scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a; /* track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #444; /* handle color */
+  border-radius: 6px;
+  border: 2px solid #1a1a1a; /* gives thumb some spacing */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #666; /* hover effect */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #1a1a1a;
+}
+/*--- Scrollbar Stying End--- */

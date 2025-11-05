@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Calistoga } from "next/font/google";
 import { twMerge } from "tailwind-merge";
-import "./globals.css";
 import Navigation from "@/components/Navigation";
 import { Footer } from "@/sections/Footer/Footer";
+import { Toaster } from "react-hot-toast";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
@@ -31,12 +32,25 @@ export default function RootLayout({
           `bg-gray-900 text-white antialiased font-sans `
         )}
       >
-        <div  className="-z-100">
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            duration:2000,
+            success: {
+              style: { background: '#22c55e', color: '#fff' },
+              iconTheme: { primary: 'white', secondary: '#22c55e' },
+            },
+            error: {
+              style: { background: '#ef4444', color: '#fff' },
+            },
+          }}
+        />
+        <div className="-z-100">
 
-        <Navigation />
+          <Navigation />
 
-        {children}
-        <Footer/>
+          {children}
+          <Footer />
         </div>
       </body>
     </html>

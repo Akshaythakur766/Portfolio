@@ -145,7 +145,7 @@ export const AboutSection = () => {
                     drag
                     dragConstraints={contraintRef}
                   >
-                    <span className="font-medium text-gray-950   ">
+                    <span className="font-medium text-white/90   ">
                       {hobby.title}
                     </span>
                     <span>{hobby.emoji}</span>
