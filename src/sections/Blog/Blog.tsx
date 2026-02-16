@@ -2,33 +2,32 @@
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CalendarDays, Clock, ArrowRight, Search, Terminal, Hash, ChevronRight } from "lucide-react";
+import { CalendarDays, Clock, ArrowRight, Terminal, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import { blogPosts } from "@/data/blogPosts";
 
 export const BlogSection = () => {
-    const [searchTerm, setSearchTerm] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("All");
 
-    const categories = ["All", ...Array.from(new Set(blogPosts.map(post => post.category)))];
+    // Simulate "10 Years Exp" by showing depth in categories
+    const categories = ["All", "Architecture", "DevOps", "Frontend", "AI Engineering"];
 
-    const filteredPosts = blogPosts.filter((post) => {
-        const matchesSearch =
-            post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesCategory =
-            selectedCategory === "All" || post.category === selectedCategory;
-        return matchesSearch && matchesCategory;
-    });
+    // Mock filtering logic (assuming blogPosts uses these categories or we map them)
+    const filteredPosts = blogPosts.filter((post) =>
+        selectedCategory === "All" || post.category === selectedCategory
+    );
 
     return (
-        <section className="py-20 lg:py-28 relative" id="blog">
-            <div className="container mx-auto px-4 max-w-5xl">
+        <section className="py-24 lg:py-32 relative bg-gray-950" id="blog">
+            {/* Background Grid Pattern for Technical Feel */}
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none"></div>
+
+            <div className="container mx-auto px-4 max-w-5xl relative z-10">
 
                 {/* Header Section - Minimalist & Technical */}
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-8">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-20 border-b border-white/10 pb-8">
                     <div>
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
@@ -38,24 +37,24 @@ export const BlogSection = () => {
                             <Terminal className="size-4" />
                             <span>~/engineering-journal</span>
                         </motion.div>
-                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-2">
-                            Insights
+                        <h2 className="text-4xl md:text-6xl font-sans font-black tracking-tight text-white mb-4">
+                            Technical <span className="text-white/40">Insights</span>
                         </h2>
-                        <p className="text-white/60 max-w-xl leading-relaxed">
-                            Thoughts on distributed systems, frontend architecture, and artificial intelligence.
+                        <p className="text-white/60 max-w-xl leading-relaxed text-lg">
+                            Deep dives into distributed systems, frontend architecture, and the future of AI-driven development.
                         </p>
                     </div>
 
                     {/* Terminal-style Filter */}
-                    <div className="flex flex-col gap-4 mt-8 md:mt-0 w-full md:w-auto">
-                        <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg p-1.5 self-start md:self-end">
+                    <div className="mt-8 md:mt-0">
+                        <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
                             {categories.map(cat => (
                                 <button
                                     key={cat}
                                     onClick={() => setSelectedCategory(cat)}
-                                    className={`px-3 py-1.5 rounded-md text-xs font-mono transition-all ${selectedCategory === cat
-                                            ? "bg-white/10 text-white shadow-sm"
-                                            : "text-white/40 hover:text-white hover:bg-white/5"
+                                    className={`px-4 py-2 rounded-lg text-xs font-bold font-mono transition-all uppercase tracking-wider ${selectedCategory === cat
+                                        ? "bg-white text-gray-950 shadow-lg shadow-white/10"
+                                        : "text-white/40 hover:text-white hover:bg-white/5"
                                         }`}
                                 >
                                     {cat}
@@ -65,51 +64,58 @@ export const BlogSection = () => {
                     </div>
                 </div>
 
-                {/* Blog Index (List Layout) */}
-                <div className="flex flex-col gap-4">
-                    <AnimatePresence>
+                {/* Blog Index (List Layout - "Changelog" Style) */}
+                <div className="flex flex-col">
+                    <AnimatePresence mode="popLayout">
                         {filteredPosts.map((post, index) => (
                             <motion.div
                                 key={post.title}
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.3, delay: index * 0.05 }}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.4, delay: index * 0.1 }}
                             >
                                 <Link href={`/blog/${post.slug}`} className="block group">
-                                    <article className="relative p-6 md:p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 group-hover:border-white/10">
-                                        <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center">
+                                    <article className="group relative py-10 md:py-12 border-b border-white/5 transition-all duration-500 hover:border-white/20">
 
-                                            {/* Date & Meta Column */}
-                                            <div className="flex flex-row md:flex-col gap-4 md:gap-2 min-w-[140px] border-b md:border-b-0 md:border-r border-white/5 pb-4 md:pb-0 md:pr-8 text-xs font-mono text-white/40">
-                                                <span className="flex items-center gap-2">
-                                                    <CalendarDays className="size-3.5" />
+                                        {/* Hover Highlight (Subtle) */}
+                                        <div className="absolute inset-0 bg-gradient-to-r from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl -mx-4 md:-mx-8"></div>
+
+                                        <div className="relative px-0 md:px-4 flex flex-col md:flex-row gap-6 md:gap-12 items-start">
+
+                                            {/* Meta Data (Left Column) */}
+                                            <div className="flex flex-row md:flex-col gap-6 md:w-32 flex-shrink-0 pt-2">
+                                                <div className="text-primary font-mono text-sm font-bold flex items-center gap-2">
+                                                    <span className="w-2 h-2 rounded-full bg-primary/40 group-hover:bg-primary group-hover:shadow-[0_0_10px_rgba(34,197,94,0.5)] transition-all duration-500"></span>
                                                     {post.date}
-                                                </span>
-                                                <span className="flex items-center gap-2">
-                                                    <Clock className="size-3.5" />
-                                                    {post.readTime}
-                                                </span>
+                                                </div>
+                                                <div className="text-white/30 text-xs font-mono uppercase tracking-widest hidden md:block">
+                                                    {post.readTime} read
+                                                </div>
                                             </div>
 
-                                            {/* Content Column */}
-                                            <div className="flex-1 space-y-3">
-                                                <div className="flex items-center gap-3 mb-2">
-                                                    <span className="text-xs font-bold font-mono text-primary px-2 py-0.5 rounded bg-primary/10 border border-primary/20">
+                                            {/* Content (Middle) */}
+                                            <div className="flex-1 space-y-4">
+                                                <h3 className="text-2xl md:text-4xl font-sans font-black text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/60 transition-all duration-300">
+                                                    {post.title}
+                                                </h3>
+                                                <p className="text-white/50 leading-relaxed text-base md:text-lg max-w-3xl line-clamp-2 md:line-clamp-none group-hover:text-white/70 transition-colors">
+                                                    {post.excerpt}
+                                                </p>
+
+                                                {/* Tags */}
+                                                <div className="flex flex-wrap gap-2 pt-2">
+                                                    <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] font-bold text-white/60 uppercase tracking-widest group-hover:border-primary/30 group-hover:text-primary transition-colors">
                                                         {post.category}
                                                     </span>
                                                 </div>
-                                                <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-primary transition-colors leading-tight">
-                                                    {post.title}
-                                                </h3>
-                                                <p className="text-white/60 leading-relaxed line-clamp-2 md:line-clamp-none max-w-3xl">
-                                                    {post.excerpt}
-                                                </p>
                                             </div>
 
-                                            {/* Action Icon */}
-                                            <div className="hidden md:flex items-center justify-center size-12 rounded-full border border-white/10 text-white/20 group-hover:text-primary group-hover:border-primary/50 group-hover:bg-primary/5 transition-all">
-                                                <ChevronRight className="size-6" />
+                                            {/* Arrow Action (Right) */}
+                                            <div className="hidden md:flex flex-col justify-center h-full pt-4">
+                                                <div className="size-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-gray-950 transition-all duration-500 transform group-hover:rotate-[-45deg]">
+                                                    <ArrowRight className="size-5" />
+                                                </div>
                                             </div>
                                         </div>
                                     </article>
@@ -120,10 +126,13 @@ export const BlogSection = () => {
                 </div>
 
                 {filteredPosts.length === 0 && (
-                    <div className="py-20 text-center border-t border-white/10">
-                        <p className="text-white/40 font-mono">Process terminated: No matching records found.</p>
-                        <button onClick={() => { setSearchTerm(""); setSelectedCategory("All") }} className="mt-4 text-primary text-sm hover:underline font-mono">
-                            Reset Query
+                    <div className="py-32 text-center border-b border-white/10">
+                        <div className="inline-block p-4 rounded-full bg-white/5 mb-4">
+                            <Terminal className="size-6 text-white/40" />
+                        </div>
+                        <p className="text-white/40 font-mono text-sm">Query returned 0 results.</p>
+                        <button onClick={() => { setSelectedCategory("All") }} className="mt-4 text-primary hover:text-primary/80 font-mono text-sm underline decoration-primary/30 hover:decoration-primary">
+                            Reset Filters
                         </button>
                     </div>
                 )}
