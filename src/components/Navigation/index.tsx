@@ -72,7 +72,7 @@ export const Navigation = () => {
             href="/contact"
             className="px-5 py-2.5 rounded-full bg-white text-gray-900 text-sm font-bold hover:bg-gray-200 transition-colors"
           >
-            Let's Talk
+            Let&apos;s Talk
           </Link>
         </nav>
       </div>
@@ -122,7 +122,7 @@ export const Navigation = () => {
                 className="flex items-center justify-center gap-2 p-4 rounded-xl bg-white text-gray-950 text-lg font-black"
               >
                 <Mail className="size-5" />
-                Let's Talk
+                Let&apos;s Talk
               </Link>
             </div>
           </motion.div>

@@ -23,7 +23,7 @@ export const ContactSection = () => {
                 <span className="gradient-text">Next Project?</span>
               </h2>
               <p className="text-white/60 text-lg">
-                Let's turn your idea into a digital reality. I'm currently available for freelance projects and open to full-time opportunities.
+                Let&apos;s turn your idea into a digital reality. I&apos;m currently available for freelance projects and open to full-time opportunities.
               </p>
             </div>
 

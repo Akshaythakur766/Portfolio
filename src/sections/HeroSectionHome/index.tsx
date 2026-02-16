@@ -70,7 +70,7 @@ export const HeroSection = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-xl md:text-2xl text-white/60 mb-12 max-w-3xl leading-relaxed font-light"
                     >
-                        I'm a <span className="text-white font-medium">Full Stack Architect</span> & <span className="text-white font-medium">AI Engineer</span>.
+                        I&apos;m a <span className="text-white font-medium">Full Stack Architect</span> & <span className="text-white font-medium">AI Engineer</span>.
                         I transform complex requirements into scalable, high-performance digital experiences.
                     </motion.p>
 

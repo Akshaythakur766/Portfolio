@@ -51,7 +51,7 @@ export const AppHome = () => {
 
           {/*  */}
           <h1 className="text-3xl md:text-4xl  font-bold mb-6 animate-slide-up flex justify-center gap-3 flex-wrap">
-            Hi, I'm a
+            Hi, I&apos;m a
 
             <span className="relative inline-block min-w-[350px] text-left text-ellipsis">
               <AnimatePresence mode="wait">

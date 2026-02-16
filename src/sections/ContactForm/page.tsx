@@ -71,7 +71,7 @@ export const ContactForm = () => {
           </div>
           <div>
             <h4 className="font-bold text-white">Message Sent!</h4>
-            <p className="text-sm text-gray-400">Thanks {data.name}, I'll be in touch.</p>
+            <p className="text-sm text-gray-400">Thanks {data.name}, I&apos;ll be in touch.</p>
           </div>
         </motion.div>
       ), { duration: 4000 });
@@ -100,7 +100,7 @@ export const ContactForm = () => {
             Get in <span className="gradient-text">Touch</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Have an idea? Let's build it together.
+            Have an idea? Let&apos;s build it together.
           </p>
         </motion.div>
 
