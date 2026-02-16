@@ -46,11 +46,14 @@ export default function RootLayout({
             },
           }}
         />
-        <div className="-z-100">
+        <div className="relative z-10 flex flex-col min-h-screen font-sans antialiased text-white selection:bg-primary/30 selection:text-white">
 
           <Navigation />
 
-          {children}
+          <main className="flex-grow">
+            {children}
+          </main>
+
           <Footer />
           <ChatSection />
         </div>

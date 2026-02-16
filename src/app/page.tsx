@@ -2,10 +2,10 @@
 
 import { Footer } from "@/sections/Footer/Footer";
 import { Header } from "@/sections/Header/Header"
-import { HeroSection } from "@/sections/Hero/Hero";
+import { HeroSection } from "@/sections/HeroSectionHome";
 import { TapeSection } from "@/sections/Tape/Tape";
 import { TestimonialsSection } from "@/sections/Testimonials/Testimonials";
-import { ProjectsSection } from "@/sections/Feature Projects/Projects";
+import { GithubStatsSection } from "@/sections/GithubStats/GithubStats";
 import { ArrowRight, Zap, Palette, Globe, Server } from "lucide-react";
 import Link from "next/link";
 import Card from "@/components/Card/Card";
@@ -53,9 +53,9 @@ export default function Home() {
       <HeroSection />
       <TapeSection />
       <ServicesTeaser />
-      <ProjectsSection />
+      <GithubStatsSection />
       <TestimonialsSection />
-      {/* Contact Section removed from Home, available via Nav/Button */}
+      {/* Contact Section available via Navigation */}
     </div>
   );
 }

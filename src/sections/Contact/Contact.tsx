@@ -7,7 +7,7 @@ import { Mail, MessageCircle } from "lucide-react";
 
 export const ContactSection = () => {
   return (
-    <div className="py-16 pt-12 lg:py-24 lg:pt-20" id="contact">
+    <div className="py-20 lg:py-28" id="contact">
       <div className="container">
         <div className="bg-gradient-to-r from-primary/10 to-accent/10 border border-white/10 backdrop-blur-sm py-12 px-10 rounded-3xl text-center relative overflow-hidden z-0 group">
 

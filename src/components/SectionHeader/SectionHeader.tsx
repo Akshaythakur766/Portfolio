@@ -6,14 +6,14 @@ export default function SectionHeader({ title, eyebrow, description }: {
   return (
     <>
       <div className="flex justify-center">
-        <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text text-center">
+        <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text text-center text-sm md:text-base">
           {eyebrow}
         </p>
       </div>
-      <h2 className="font-serif text-3xl md:text:5xl text-center mt-6 ">
+      <h2 className="font-serif text-3xl md:text-4xl text-center mt-6 text-white font-bold">
         {title}
       </h2>
-      <p className="text-center md:text-lg text-white/60 mt-4 max-w-md mx-auto lg:text-xl">
+      <p className="text-center md:text-lg text-white/60 mt-4 max-w-md mx-auto lg:text-xl leading-relaxed">
         {description}
       </p>
     </>

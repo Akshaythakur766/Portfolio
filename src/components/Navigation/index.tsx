@@ -22,8 +22,26 @@ export const Navigation = () => {
 
   return (
     <>
+      {/* Fixed Top Brand Bar */}
+      <div className="fixed top-0 left-0 right-0 z-40 py-6 px-6 md:px-12 flex justify-between items-center pointer-events-none">
+        <Link href="/" className="pointer-events-auto">
+          <div className="text-xl font-serif font-bold tracking-tight text-white/90 hover:text-white transition-colors">
+            Akshay Thakur
+          </div>
+          <p className="text-[10px] text-white/40 font-mono tracking-widest uppercase">Frontend Architect</p>
+        </Link>
+
+        <a href="https://github.com/Akshaythakur766" target="_blank" className="pointer-events-auto hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 transition-all text-xs font-medium text-white/70">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          Available for work
+        </a>
+      </div>
+
       {/* Desktop Floating Dock */}
-      <div className="hidden md:flex fixed top-5 left-1/2 -translate-x-1/2 z-50">
+      <div className="hidden md:flex fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
         <div className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-gray-900/40 backdrop-blur-xl border border-white/10 shadow-lg shadow-primary/5">
           {navLinks.map((link) => {
             const active = isActive(link.path);
