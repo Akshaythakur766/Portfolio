@@ -24,11 +24,11 @@ export const PageHero = ({ eyebrow, title, description }: PageHeroProps) => {
                         <span>{eyebrow}</span>
                     </div>
 
-                    <h1 className="font-serif text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+                    <h1 className="font-sans text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
                         {title}
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-xl md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
                         {description}
                     </p>
                 </motion.div>

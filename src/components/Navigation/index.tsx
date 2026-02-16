@@ -15,88 +15,79 @@ export const Navigation = () => {
     { name: "About", path: "/about", icon: User },
     { name: "Projects", path: "/projects", icon: Briefcase },
     { name: "Blog", path: "/blog", icon: FileText },
-    { name: "Contact", path: "/contact", icon: Mail },
   ];
 
   const isActive = (path: string) => pathname === path;
 
   return (
     <>
-      {/* Fixed Top Brand Bar */}
-      <div className="fixed top-0 left-0 right-0 z-40 py-6 px-6 md:px-12 flex justify-between items-center pointer-events-none">
-        <Link href="/" className="pointer-events-auto">
-          <div className="text-xl font-serif font-bold tracking-tight text-white/90 hover:text-white transition-colors">
-            Akshay Thakur
-          </div>
-          <p className="text-[10px] text-white/40 font-mono tracking-widest uppercase">Frontend Architect</p>
-        </Link>
+      {/* 
+        Desktop Top Floating Pill 
+        Center aligned, glassmorphism, contains Brand + Links + CTA 
+      */}
+      <div className="hidden md:flex fixed top-6 left-1/2 -translate-x-1/2 z-50 w-auto">
+        <nav className="flex items-center gap-2 p-2 rounded-full bg-gray-900/80 backdrop-blur-xl border border-white/10 shadow-2xl shadow-primary/5">
 
-        <a href="https://github.com/Akshaythakur766" target="_blank" className="pointer-events-auto hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 transition-all text-xs font-medium text-white/70">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-          </span>
-          Available for work
-        </a>
-      </div>
+          {/* Brand (Left) */}
+          <Link href="/" className="px-4 py-2 flex items-center gap-2 rounded-full hover:bg-white/5 transition-colors group">
+            <div className="size-8 rounded-full bg-gradient-to-tr from-primary to-accent flex items-center justify-center font-bold text-white text-xs">
+              AT
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-bold text-white leading-none group-hover:text-primary transition-colors">Akshay</span>
+              <span className="text-[10px] text-white/50 font-mono leading-none">dev</span>
+            </div>
+          </Link>
 
-      {/* Desktop Floating Dock */}
-      <div className="hidden md:flex fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
-        <div className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-gray-900/40 backdrop-blur-xl border border-white/10 shadow-lg shadow-primary/5">
-          {navLinks.map((link) => {
-            const active = isActive(link.path);
-            return (
-              <Link
-                key={link.path}
-                href={link.path}
-                className="relative group"
-              >
-                <div
-                  className={`relative flex items-center justify-center p-3 rounded-xl transition-all duration-300 ${active
-                    ? "bg-white/10 text-white scale-110"
-                    : "text-white/50 hover:text-white hover:bg-white/5"
+          <div className="w-px h-8 bg-white/10 mx-1" />
+
+          {/* Links (Center) */}
+          <div className="flex items-center gap-1">
+            {navLinks.map((link) => {
+              const active = isActive(link.path);
+              return (
+                <Link
+                  key={link.path}
+                  href={link.path}
+                  className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${active ? "text-white" : "text-white/60 hover:text-white hover:bg-white/5"
                     }`}
                 >
-                  <link.icon className={`size-5 transition-transform duration-300 ${active ? "scale-110" : "group-hover:scale-110"}`} />
-
-                  {/* Tooltip */}
-                  <span className="absolute top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-gray-900 border border-white/10 text-xs font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
-                    {link.name}
-                  </span>
-
-                  {/* Active Dot */}
                   {active && (
                     <motion.div
-                      layoutId="active-dot"
-                      className="absolute -bottom-1 left-1/2 -translate-x-1/2 size-1 rounded-full bg-primary"
+                      layoutId="nav-pill"
+                      className="absolute inset-0 bg-white/10 rounded-full"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
-                </div>
-              </Link>
-            );
-          })}
+                  <span className="relative z-10">{link.name}</span>
+                </Link>
+              );
+            })}
+          </div>
 
-          <div className="w-px h-8 bg-white/10 mx-2" />
+          <div className="w-px h-8 bg-white/10 mx-1" />
 
+          {/* CTA (Right) */}
           <Link
             href="/contact"
-            className="px-4 py-2 rounded-xl bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-all hover:scale-105 shadow-glow"
+            className="px-5 py-2.5 rounded-full bg-white text-gray-900 text-sm font-bold hover:bg-gray-200 transition-colors"
           >
             Let's Talk
           </Link>
-        </div>
+        </nav>
       </div>
 
       {/* Mobile Top Bar */}
       <div className="md:hidden fixed top-0 left-0 right-0 z-50 p-4 flex justify-between items-center bg-gray-900/80 backdrop-blur-md border-b border-white/5">
-        <Link href="/" className="font-bold text-lg gradient-text">
-          Portfolio
+        <Link href="/" className="font-bold text-lg text-white flex items-center gap-2">
+          <div className="size-8 rounded-full bg-gradient-to-tr from-primary to-accent flex items-center justify-center text-xs">AT</div>
+          <span className="font-black tracking-tight">Akshay</span>
         </Link>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 rounded-lg bg-white/5 text-white"
+          className="p-2 rounded-full bg-white/5 text-white border border-white/10"
         >
-          {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+          {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </div>
 
@@ -107,29 +98,30 @@ export const Navigation = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-gray-900/95 backdrop-blur-xl pt-24 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-gray-950 pt-24 px-6 md:hidden"
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   href={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center gap-4 p-4 rounded-xl text-lg font-medium transition-colors ${isActive(link.path)
-                    ? "bg-primary/20 text-primary border border-primary/20"
-                    : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white"
+                  className={`flex items-center gap-4 p-4 rounded-xl text-lg font-bold transition-colors ${isActive(link.path)
+                    ? "bg-white/10 text-white"
+                    : "text-white/50 hover:text-white"
                     }`}
                 >
-                  <link.icon className="size-6" />
+                  <link.icon className="size-5" />
                   {link.name}
                 </Link>
               ))}
+              <hr className="border-white/10 my-2" />
               <Link
                 href="/contact"
                 onClick={() => setIsOpen(false)}
-                className="mt-4 flex items-center justify-center gap-2 p-4 rounded-xl bg-primary text-white text-lg font-bold shadow-glow"
+                className="flex items-center justify-center gap-2 p-4 rounded-xl bg-white text-gray-950 text-lg font-black"
               >
-                <Mail className="size-6" />
+                <Mail className="size-5" />
                 Let's Talk
               </Link>
             </div>
