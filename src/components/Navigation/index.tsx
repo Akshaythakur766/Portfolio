@@ -3,82 +3,122 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
-import {Button} from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Home, User, Briefcase, FileText, Mail, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Navigation = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const navLinks = [
-    { name: "Home", path: "/home" },
-    { name: "About", path: "/about" },
-    { name: "Projects", path: "/projects" },
-    { name: "Contact", path: "/contact" },
-  ];
-  const isActive = (path: string) => pathname == path || false;
-  return (
-   <nav className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-border/50">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="text-2xl font-bold gradient-text">
-            Portfolio
-          </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
+  const navLinks = [
+    { name: "Home", path: "/", icon: Home },
+    { name: "About", path: "/about", icon: User },
+    { name: "Projects", path: "/projects", icon: Briefcase },
+    { name: "Blog", path: "/blog", icon: FileText },
+    { name: "Contact", path: "/contact", icon: Mail },
+  ];
+
+  const isActive = (path: string) => pathname === path;
+
+  return (
+    <>
+      {/* Desktop Floating Dock */}
+      <div className="hidden md:flex fixed top-5 left-1/2 -translate-x-1/2 z-50">
+        <div className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-gray-900/40 backdrop-blur-xl border border-white/10 shadow-lg shadow-primary/5">
+          {navLinks.map((link) => {
+            const active = isActive(link.path);
+            return (
               <Link
                 key={link.path}
                 href={link.path}
-                className={`relative py-2 px-1 transition-colors duration-300 ${
-                  isActive(link.path)
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                className="relative group"
               >
-                {link.name}
-                {isActive(link.path) && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-primary rounded-full animate-fade-in" />
-                )}
+                <div
+                  className={`relative flex items-center justify-center p-3 rounded-xl transition-all duration-300 ${active
+                    ? "bg-white/10 text-white scale-110"
+                    : "text-white/50 hover:text-white hover:bg-white/5"
+                    }`}
+                >
+                  <link.icon className={`size-5 transition-transform duration-300 ${active ? "scale-110" : "group-hover:scale-110"}`} />
+
+                  {/* Tooltip */}
+                  <span className="absolute top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-gray-900 border border-white/10 text-xs font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+                    {link.name}
+                  </span>
+
+                  {/* Active Dot */}
+                  {active && (
+                    <motion.div
+                      layoutId="active-dot"
+                      className="absolute -bottom-1 left-1/2 -translate-x-1/2 size-1 rounded-full bg-primary"
+                    />
+                  )}
+                </div>
               </Link>
-            ))}
-          </div>
+            );
+          })}
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
+          <div className="w-px h-8 bg-white/10 mx-2" />
+
+          <Link
+            href="/contact"
+            className="px-4 py-2 rounded-xl bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-all hover:scale-105 shadow-glow"
           >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+            Let's Talk
+          </Link>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
+      {/* Mobile Top Bar */}
+      <div className="md:hidden fixed top-0 left-0 right-0 z-50 p-4 flex justify-between items-center bg-gray-900/80 backdrop-blur-md border-b border-white/5">
+        <Link href="/" className="font-bold text-lg gradient-text">
+          Portfolio
+        </Link>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="p-2 rounded-lg bg-white/5 text-white"
+        >
+          {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+        </button>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
         {isOpen && (
-          <div className="md:hidden mt-4 pb-4 animate-fade-in">
-            <div className="flex flex-col space-y-2">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-40 bg-gray-900/95 backdrop-blur-xl pt-24 px-6 md:hidden"
+          >
+            <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   href={link.path}
-                  className={`py-2 px-3 rounded-lg transition-colors duration-300 ${
-                    isActive(link.path)
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                  }`}
                   onClick={() => setIsOpen(false)}
+                  className={`flex items-center gap-4 p-4 rounded-xl text-lg font-medium transition-colors ${isActive(link.path)
+                    ? "bg-primary/20 text-primary border border-primary/20"
+                    : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white"
+                    }`}
                 >
+                  <link.icon className="size-6" />
                   {link.name}
                 </Link>
               ))}
+              <Link
+                href="/contact"
+                onClick={() => setIsOpen(false)}
+                className="mt-4 flex items-center justify-center gap-2 p-4 rounded-xl bg-primary text-white text-lg font-bold shadow-glow"
+              >
+                <Mail className="size-6" />
+                Let's Talk
+              </Link>
             </div>
-          </div>
+          </motion.div>
         )}
-      </div>
-    </nav>
+      </AnimatePresence>
+    </>
   );
 };
 

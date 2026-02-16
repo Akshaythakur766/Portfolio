@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Calistoga } from "next/font/google";
 import { twMerge } from "tailwind-merge";
-import Navigation from "@/components/Navigation";
+import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/sections/Footer/Footer";
 import { Toaster } from "react-hot-toast";
+import { ChatSection } from "@/sections/Chat/Chat";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -35,7 +36,7 @@ export default function RootLayout({
         <Toaster
           position="top-right"
           toastOptions={{
-            duration:2000,
+            duration: 2000,
             success: {
               style: { background: '#22c55e', color: '#fff' },
               iconTheme: { primary: 'white', secondary: '#22c55e' },
@@ -51,6 +52,7 @@ export default function RootLayout({
 
           {children}
           <Footer />
+          <ChatSection />
         </div>
       </body>
     </html>

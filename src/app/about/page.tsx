@@ -1,13 +1,15 @@
-import React from 'react'
-import {AboutMe} from "@/sections/AboutMe"
-import { HeroSection } from '@/sections/Hero/Hero'
-const About = () => {
+"use client";
+
+import { AboutSection } from "@/sections/About/About";
+import { EducationSection } from "@/sections/Education/Education";
+import { ExperienceSection } from "@/sections/Experience/Experience";
+
+export default function AboutPage() {
   return (
-    <div>
-      <AboutMe/>
-
+    <div className="-z-100 pt-20">
+      <AboutSection />
+      <ExperienceSection />
+      <EducationSection />
     </div>
-  )
+  );
 }
-
-export default About

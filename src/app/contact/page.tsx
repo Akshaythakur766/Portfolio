@@ -1,10 +1,9 @@
-
 import ContactForm from '@/sections/ContactForm/page'
 
 const page = () => {
   return (
-    <div>
-        <ContactForm/>
+    <div className="min-h-screen bg-gray-950">
+      <ContactForm />
     </div>
   )
 }

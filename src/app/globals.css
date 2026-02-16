@@ -4,8 +4,7 @@
 
 @layer base {
   :root {
-    --border: 222 47% 15%;
-    /* Dark portfolio theme */
+    /* Deep Space Theme - Refined Dark Mode */
     --background: 222 47% 7%;
     --foreground: 210 40% 98%;
 
@@ -18,10 +17,6 @@
     --primary: 217 91% 60%;
     --primary-foreground: 222 47% 7%;
 
-    /* Primary (Emerald 300) */
-    /* --primary: 156 64% 67%;
-  --primary-foreground: 156 100% 10%; */
-
     --secondary: 222 47% 12%;
     --secondary-foreground: 210 40% 98%;
 
@@ -30,10 +25,6 @@
 
     --accent: 262 83% 58%;
     --accent-foreground: 210 40% 98%;
-
-    /*     Accent(SKY-400)
-    --accent: 199 94% 60%;
-    --accent-foreground:  199 100% 10%; */
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
@@ -44,115 +35,82 @@
 
     --radius: 0.75rem;
 
-    /* Custom portfolio colors */
+    /* Custom Gradients */
     --gradient-primary: linear-gradient(
       135deg,
       hsl(217 91% 60%),
       hsl(262 83% 58%)
     );
-    --gradient-secondary: linear-gradient(
-      135deg,
-      hsl(222 47% 12%),
-      hsl(222 47% 15%)
-    );
-    --gradient-hero: linear-gradient(
-      135deg,
+     --gradient-dark: linear-gradient(
+      180deg,
       hsl(222 47% 7%) 0%,
-      hsl(222 47% 9%) 50%,
-      hsl(217 91% 60% / 0.1) 100%
+      hsl(222 47% 9%) 100%
     );
 
-    /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(217 91% 60% / 0.3);
-    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.2);
-    --shadow-card: 0 4px 20px hsl(222 47% 7% / 0.5);
-
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-
-    /* Custom portfolio colors */
-    --gradient-primary: linear-gradient(
-      135deg,
-      hsl(217 91% 60%),
-      hsl(262 83% 58%)
-    );
-    --gradient-secondary: linear-gradient(
-      135deg,
-      hsl(222 47% 12%),
-      hsl(222 47% 15%)
-    );
-    --gradient-hero: linear-gradient(
-      135deg,
-      hsl(222 47% 7%) 0%,
-      hsl(222 47% 9%) 50%,
-      hsl(217 91% 60% / 0.1) 100%
-    );
+    /* Shadows & Glows */
+    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.15);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
   }
-  .nav-item {
-    @apply px-4 py-1.5 rounded-full text-white/70 text-sm font-semibold hover:bg-white/10  hover:text-white transition duration-300;
+
+  html {
+     scroll-behavior: smooth;
   }
-  .hero-ring {
-    @apply absolute inset-0  border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5;
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-white;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
   }
 }
 
 @layer utilities {
-}
-
-@layer components {
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  .text-balance {
+    text-wrap: balance;
   }
-  .card-hover {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-[var(--shadow-glow)];
+  
+  /* Performance Optimizations */
+  .content-visibility-auto {
+    content-visibility: auto;
+  }
+  
+  .will-change-transform {
+    will-change: transform;
   }
 
   .glass-effect {
-    @apply bg-card/80 backdrop-blur-lg border border-border/50;
+    @apply bg-gray-900/80 backdrop-blur-md border border-white/5;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  /* Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
 }
 
-
-/* ---Scrollbar Styling Start---*/
-/* Custom dark scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+@layer components {
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: hsl(222 47% 20%);
+        border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: hsl(222 47% 30%);
+    }
 }
-
-::-webkit-scrollbar-track {
-  background: #1a1a1a; /* track color */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #444; /* handle color */
-  border-radius: 6px;
-  border: 2px solid #1a1a1a; /* gives thumb some spacing */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #666; /* hover effect */
-}
-
-/* For Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #444 #1a1a1a;
-}
-/*--- Scrollbar Stying End--- */

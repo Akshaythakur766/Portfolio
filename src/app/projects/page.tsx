@@ -1,12 +1,11 @@
-import { ProjectsSection } from '@/sections/Feature Projects/Projects'
-import React from 'react'
+"use client";
 
-const Project = () => {
+import { ProjectsSection } from "@/sections/Feature Projects/Projects";
+
+export default function ProjectsPage() {
   return (
-    <div>
-        <ProjectsSection/>
+    <div className="-z-100 pt-20">
+      <ProjectsSection />
     </div>
-  )
+  );
 }
-
-export default Project
