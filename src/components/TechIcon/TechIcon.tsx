@@ -9,8 +9,8 @@ export default function TechIcon({
       <Component className="size-10 fill-[url(#tech-icon)]" />
       <svg className="size-0  absolute" >
         <linearGradient id="tech-icon">
-            <stop offset='0%' stopColor="rgb(110 231 183)"/>
-            <stop offset='100%' stopColor="rgb(56 189 248)"/>
+          <stop offset="0%" stop-color="rgb(47, 128, 237)" />
+          <stop offset="100%" stop-color="rgb(138, 43, 226)" />
         </linearGradient>
       </svg>
     </>

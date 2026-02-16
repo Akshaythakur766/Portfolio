@@ -1,7 +1,8 @@
 import React from "react";
-import {Card} from "@/components/ui/card"
-import {Badge} from "@/components/ui/badge"
-import {Progress} from "@/components/ui/progress"
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { HeroSection } from "../Hero/Hero";
 export const AboutMe = () => {
   const skills = [
     { name: "React.js", level: 95 },
@@ -19,7 +20,7 @@ export const AboutMe = () => {
     "JavaScript",
     "Tailwind CSS",
     "Bootstrap",
-    
+
     "Framer Motion",
     // "Three.js",
     "Redux",
@@ -41,38 +42,40 @@ export const AboutMe = () => {
             About <span className="gradient-text">Me</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            I'm a passionate React.js/Next.js developer with a love for creating
+            I&apos;m a passionate React.js/Next.js developer with a love for creating
             modern, efficient, and user-friendly web applications.
           </p>
         </div>
+        <HeroSection />
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - About Text */}
           <div className="space-y-6 animate-slide-up">
             <Card className="p-8 glass-effect">
               <h2 className="text-2xl font-bold mb-4">My Story</h2>
-  <div className="space-y-4 text-muted-foreground">
-  <p>
-    I'm a Frontend Developer with over 1.5 years of hands-on experience building
-    high-performance web applications using <strong>React.js</strong> and
-    <strong> Next.js</strong>. My work blends clean code, seamless UI/UX, and a
-    deep focus on scalability and performance.
-  </p>
-  <p>
-    I've contributed to a wide range of projects — from sleek landing pages to
-    complex enterprise dashboards — always aiming to turn ideas into smooth,
-    user-focused digital experiences. I'm also experienced with tools like
-    <strong> Nx</strong>, <strong>Storybook</strong>, and
-    <strong> TypeScript</strong>, which help me deliver maintainable and
-    production-ready solutions.
-  </p>
-  <p>
-    Beyond coding, I love exploring new design trends, experimenting with
-    emerging frontend tools, and sharing my learnings through articles and open
-    source contributions.
-  </p>
-</div>
-
+              <div className="space-y-4 text-muted-foreground">
+                <p>
+                  I&apos;m a Frontend Developer with over 1.5 years of hands-on
+                  experience building high-performance web applications using{" "}
+                  <strong>React.js</strong> and
+                  <strong> Next.js</strong>. My work blends clean code, seamless
+                  UI/UX, and a deep focus on scalability and performance.
+                </p>
+                <p>
+                  I&apos;ve contributed to a wide range of projects — from sleek
+                  landing pages to complex enterprise dashboards — always aiming
+                  to turn ideas into smooth, user-focused digital experiences.
+                  I&apos;m also experienced with tools like
+                  <strong> Nx</strong>, <strong>Storybook</strong>, and
+                  <strong> TypeScript</strong>, which help me deliver
+                  maintainable and production-ready solutions.
+                </p>
+                <p>
+                  Beyond coding, I love exploring new design trends,
+                  experimenting with emerging frontend tools, and sharing my
+                  learnings through articles and open source contributions.
+                </p>
+              </div>
             </Card>
 
             <Card className="p-8 glass-effect">
@@ -94,7 +97,7 @@ export const AboutMe = () => {
           </div>
 
           {/* Right Column - Skills */}
-          <div className="animate-slide-up [animation-delay:200ms]">
+          <div className="animate-slide-up ">
             <Card className="p-8 glass-effect">
               <h2 className="text-2xl font-bold mb-6">Core Skills</h2>
               <div className="space-y-6">

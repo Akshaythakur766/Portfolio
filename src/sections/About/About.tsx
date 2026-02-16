@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import ChromeIcon from "@/assets/icons/check-circle.svg";
 import CssIcon from "@/assets/icons/css3.svg";
@@ -12,7 +12,7 @@ import smileEmoji from "@/assets/images/memoji-smile.png";
 import CardHeader from "@/components/CardHeader/CardHeader";
 import SectionHeader from "@/components/SectionHeader/SectionHeader";
 import Image from "next/image";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 import Card from "@/components/Card/Card";
 import ToolBoxItems from "@/components/ToolBoxItems/ToolBoxItems";
 const toolBoxItems = [
@@ -32,10 +32,12 @@ const toolBoxItems = [
     title: "React",
     iconType: ReactIcon,
   },
+
   {
     title: "Chrome",
     iconType: ChromeIcon,
   },
+
   {
     title: "GitHub",
     iconType: GithubIcon,
@@ -88,9 +90,9 @@ const hobbies = [
 ];
 
 export const AboutSection = () => {
-  const contraintRef=React.useRef(null)
+  const contraintRef = React.useRef(null);
   return (
-    <div className="py-20 lg:py-28  " id="about">
+    <div className="py-20 lg:py-28 mt-40 " id="about">
       <div className="container">
         <SectionHeader
           eyebrow="About Me"
@@ -134,16 +136,16 @@ export const AboutSection = () => {
                 description=" Explore my interests and hobbies beyond the digital realm"
                 className="px-6 py-6"
               />
-              <div className="relative flex-1 " ref={contraintRef} >
+              <div className="relative flex-1 " ref={contraintRef}>
                 {hobbies.map((hobby) => (
                   <motion.div
                     key={hobby.title}
-                    className="inline-flex  items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute  "
+                    className="inline-flex  items-center gap-2 px-6 bg-gradient-to-r from-primary to-accent rounded-full py-1.5 absolute  "
                     style={{ left: hobby.left, top: hobby.top }}
                     drag
                     dragConstraints={contraintRef}
                   >
-                    <span className="font-medium text-gray-950   ">
+                    <span className="font-medium text-white/90   ">
                       {hobby.title}
                     </span>
                     <span>{hobby.emoji}</span>
@@ -152,15 +154,15 @@ export const AboutSection = () => {
               </div>
             </Card>
 
-            <Card className="h-[320px] p-0 md:col-span-2 lg:col-span-1 cursor-pointer " >
+            <Card className="h-[320px] p-0 md:col-span-2 lg:col-span-1 cursor-pointer ">
               <Image
                 src={mapImage}
                 alt="map"
                 className="h-full w-full object-cover object-left-top "
               />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full bg-gradient-to-r after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30 ">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-20 animate-ping [animation-duration] "></div>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-10 "></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-accent -z-20 animate-ping [animation-duration] "></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-accent -z-10 "></div>
                 <Image
                   src={smileEmoji}
                   alt="smiling Emoji"
